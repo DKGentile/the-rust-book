@@ -1,0 +1,15 @@
+# Rust/Cargo
+target/
+**/target/
+
+# rustfmt backups
+**/*.rs.bk
+
+# IDE/editor
+.vscode/
+.idea/
+*.iml
+
+# OS files
+Thumbs.db
+Desktop.ini
