@@ -16,3 +16,11 @@ cargo doc --open        #builds documentation and opens it in your browser
 if we create a variable "let x = 5", we can not change it with "x=3", but we can "shadow" it as such: "let x = 5; let x = x + 1", and we can even change the type (i.e String -> int)
 
 LOOK AT main.rs IN VARIABLES
+LOOK AT main.rs IN OWNERSHIP
+
+At any given time, you can have either one mutable reference or any number of immutable references.
+References must always be valid.
+
+let slice = &s[0..2]; == let slice = &s[..2];
+let slice = &s[3..len]; == let slice = &s[3..];
+let slice = &s[0..len]; == let slice = &s[..];
