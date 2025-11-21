@@ -24,3 +24,10 @@ References must always be valid.
 let slice = &s[0..2]; == let slice = &s[..2];
 let slice = &s[3..len]; == let slice = &s[3..];
 let slice = &s[0..len]; == let slice = &s[..];
+
+"x.push_str(y)" pushes y string onto x string
+"x.push(y)" pushes a character y onto x string
+
+let s1 = String::from("Hello, ");
+let s2 = String::from("world!");
+let s3 = s1 + &s2; // note s1 has been moved here and can no longer be used
