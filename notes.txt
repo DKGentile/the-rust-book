@@ -31,3 +31,33 @@ let slice = &s[0..len]; == let slice = &s[..];
 let s1 = String::from("Hello, ");
 let s2 = String::from("world!");
 let s3 = s1 + &s2; // note s1 has been moved here and can no longer be used
+
+panic!("") essentially a system interrupt with a custom message
+std::io::ErrorKind //the types of errors
+.unwrap() //basically just an error catcher.
+"Result<T,E>" is the enum default error checker type (lit. Ok(T) and Err(E) )
+
+The "?" operator unwraps a Result<T,E> (or Option) on success, or early-returns the Err (or None) from the enclosing function if it fails.
+File::open("hello.txt")?.read_to_string(&mut username)?;
+The "?" operator can only be used in functions whose return type is compatible with the value the ? is used on.
+
+fn main() -> Result<(), Box<dyn Error>> {
+    let greeting_file = File::open("hello.txt")?;
+
+    Ok(())
+}
+
+how to interpret:
+Result<               // I’m returning a Result...
+    (),               // …on success I return nothing useful (unit)
+    Box<dyn Error>    // …on failure I return some error, and I don’t care about its exact type
+>
+
+Use panic! (or unwrap() / expect() in dev) when a bug truly means “this situation is impossible or indicates programmer error”
+(i.e the program is in an invalid state and the safest thing is to crash immediately.)
+but, perfectly fine (and even preferred) in production for unrecoverable bugs
+se Result (whether it’s Result<(), Box<dyn Error>>, anyhow::Result<()>, or your own custom error type) when the failure is expected 
+and recoverable in principle (file not found, network timeout, invalid input, etc.).
+
+“panic = bug in my code”
+“Result = something external went wrong that isn’t my fault”

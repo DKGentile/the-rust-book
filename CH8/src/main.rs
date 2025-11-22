@@ -10,7 +10,7 @@ enum DateInCoolType {
 impl fmt::Display for DateInCoolType {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         match self {
-            DateInCoolType::Month(m) => write!(f, "{m}"),
+            DateInCoolType::Month(m) => write!(f, "{m}"), //soon, we shall conquer I/O
             DateInCoolType::Day(d) => write!(f, "{d}"),
             DateInCoolType::Year(y) => write!(f, "{y}"),
         }
