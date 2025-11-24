@@ -61,3 +61,6 @@ and recoverable in principle (file not found, network timeout, invalid input, et
 
 “panic = bug in my code”
 “Result = something external went wrong that isn’t my fault”
+
+put "#[cfg(test)]" above the module you want to test, and "#[test]" above the function(s) within the module you want to test.
+execute tests with "cargo test" in CLI
