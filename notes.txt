@@ -48,9 +48,9 @@ fn main() -> Result<(), Box<dyn Error>> {
 }
 
 how to interpret:
-Result<               // I’m returning a Result...
-    (),               // …on success I return nothing useful (unit)
-    Box<dyn Error>    // …on failure I return some error, and I don’t care about its exact type
+Result<               //I’m returning a Result...
+    (),               //…on success I return nothing useful (unit)
+    Box<dyn Error>    //…on failure I return some error, and I don’t care about its exact type
 >
 
 Use panic! (or unwrap() / expect() in dev) when a bug truly means “this situation is impossible or indicates programmer error”
